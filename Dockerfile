@@ -21,9 +21,9 @@ ARG MIRTH_CONNECT_VERSION=3.3.1.7856.b91
 RUN \
   cd /tmp && \
   wget http://downloads.mirthcorp.com/connect/$MIRTH_CONNECT_VERSION/mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
-  tar xvzf mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
-  rm -f mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
-  mv Mirth\ Connect/* /opt/mirth-connect/ && \
+  cd /opt/mirth-connect/ && \
+  tar xvzf /tmp/mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz --strip-components=1  && \
+  rm -f /tmp/mirthconnect-$MIRTH_CONNECT_VERSION-unix.tar.gz && \
   chown -R mirth /opt/mirth-connect
 
 WORKDIR /opt/mirth-connect
