@@ -1,0 +1,24 @@
+version: '3' #compose version
+services:
+  server:
+    image: tsystem/mirth-connect:3.5
+    ports:
+     - "8080:8080"
+     - "8443:8443"
+    volumes:
+     - "tsystem/mirth-connect"
+    depends_on:
+      - db
+    environment:
+      M_DATABASE: postgres
+      M_DATABASE_URL: jdbc:postgresql://db:5432/mirthdb
+      M_DATABASE_PASSWORD: mirthmobile
+      M_DATABASE_USER: mirthdb
+  db:
+    image: "postgres:9.6-alpine"
+    command: "-c fsync=off -c full_page_writes=off"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mirthmobile
+      POSTGRES_USER: mirthdb

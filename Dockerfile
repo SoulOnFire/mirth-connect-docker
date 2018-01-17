@@ -1,13 +1,17 @@
 FROM java
 
 # Mirth Connect is run with user `connect`, uid = 1000
-# If you bind mount a volume from the host or a data container, 
+# If you bind mount a volume from the host or a data container,
 # ensure you use the same uid
 RUN useradd -u 1000 mirth
 
 # grab gosu for easy step-down from root
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends ca-certificates wget \
+	&& apt-get -y install gettext-base \
+	&& apt-get clean \
+  	&& rm -rf /var/lib/apt/lists/* \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" \
 	&& wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture).asc" \
 	&& gpg --verify /usr/local/bin/gosu.asc \
@@ -31,6 +35,8 @@ WORKDIR /opt/mirth-connect
 EXPOSE 8080 8443
 
 COPY docker-entrypoint.sh /
+COPY mirth.properties_env /opt/mirth-connect/conf/
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["java", "-jar", "mirth-server-launcher.jar"]
