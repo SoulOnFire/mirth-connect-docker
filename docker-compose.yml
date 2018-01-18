@@ -5,8 +5,6 @@ services:
     ports:
      - "8080:8080"
      - "8443:8443"
-    volumes:
-     - "tsystem/mirth-connect"
     depends_on:
       - db
     environment:
