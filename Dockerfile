@@ -16,11 +16,12 @@ RUN apt-get update \
 	&& wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture).asc" \
 	&& gpg --verify /usr/local/bin/gosu.asc \
 	&& rm /usr/local/bin/gosu.asc \
-	&& chmod +x /usr/local/bin/gosu
+	&& chmod +x /usr/local/bin/gosu \
+	&& update-ca-certificates
 
 VOLUME /opt/mirth-connect/appdata
 
-ARG MIRTH_CONNECT_VERSION=3.3.1.7856.b91
+ARG MIRTH_CONNECT_VERSION=3.6.0.b2287
 
 RUN \
   cd /tmp && \
