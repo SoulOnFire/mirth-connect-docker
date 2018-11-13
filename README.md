@@ -71,17 +71,17 @@ One time only:
  - `docker login` (with your hub.docker.com credentials on your terminal)
 
 Each time you want to publish:
- - `docker build --build-arg MIRTH_CONNECT_VERSION=3.6.0.b2287 -t tsystem/mirth-connect:3.6.0 .`
+ - `docker build --build-arg MIRTH_CONNECT_VERSION=3.6.1.b220 -t tsystem/mirth-connect:3.6.1 .`
    - `build-arg MIRTH_CONNECT_VERSION` overwrites the version specified in the Dockerfile.  This way you don't need to change the Dockerfile every time there is a new version of Mirth
    - Find the [latest version number here](https://www.nextgen.com/products-and-services/NextGen-Connect-Integration-Engine-Downloads) and all [previous versions here](http://downloads.mirthcorp.com/archive/connect/)
    - `-t ...` tags this image
    - `.` the current directory with the Dockerfile in it
  - Copy the tag to other tags:
-   - `docker tag tsystem/mirth-connect:3.6.0 tsystem/mirth-connect:3`
-   - `docker tag tsystem/mirth-connect:3.6.0 tsystem/mirth-connect:3.6`
-   - `docker tag tsystem/mirth-connect:3.6.0 tsystem/mirth-connect:latest`
+   - `docker tag tsystem/mirth-connect:3.6.1 tsystem/mirth-connect:3`
+   - `docker tag tsystem/mirth-connect:3.6.1 tsystem/mirth-connect:3.6`
+   - `docker tag tsystem/mirth-connect:3.6.1 tsystem/mirth-connect:latest`
  - Push all the tags to Dockerhub:
-   - `docker push tsystem/mirth-connect:3.6.0`
+   - `docker push tsystem/mirth-connect:3.6.1`
    - `docker push tsystem/mirth-connect:3.6`
    - `docker push tsystem/mirth-connect:3`
    - `docker push tsystem/mirth-connect:latest`
