@@ -73,7 +73,7 @@ One time only:
 Each time you want to publish:
  - `docker build --build-arg MIRTH_CONNECT_VERSION=3.6.0.b2287 -t tsystem/mirth-connect:3.6.0 .`
    - `build-arg MIRTH_CONNECT_VERSION` overwrites the version specified in the Dockerfile.  This way you don't need to change the Dockerfile every time there is a new version of Mirth
-   - Find the [latest version here](http://downloads.mirthcorp.com/archive/connect/)
+   - Find the [latest version number here](https://www.nextgen.com/products-and-services/NextGen-Connect-Integration-Engine-Downloads) and all [previous versions here](http://downloads.mirthcorp.com/archive/connect/)
    - `-t ...` tags this image
    - `.` the current directory with the Dockerfile in it
  - Copy the tag to other tags:
