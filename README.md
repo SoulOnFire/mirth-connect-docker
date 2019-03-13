@@ -16,7 +16,7 @@ This image forks https://github.com/brandonstevens/mirth-connect-docker and adds
 
 Mirth Connect Server contains the back-end for the management interface and the integration engine component, which performs message filtering, transformation, and transmission.
 
-    $ docker run -d -P tsystem/mirth-connect
+    $ docker run -d -P soulonfire/mirth-connect
 
 ## Configuring Mirth Connect Server
 
