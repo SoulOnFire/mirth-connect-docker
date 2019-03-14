@@ -31,6 +31,7 @@ EXPOSE 8080 8443
 
 COPY docker-entrypoint.sh /
 COPY mirth.properties_env /opt/mirth-connect/conf/
+COPY custom-lib /opt/mirth-connect/custom-lib
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
