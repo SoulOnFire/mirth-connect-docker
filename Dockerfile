@@ -16,7 +16,7 @@ USER mirth
 
 VOLUME /opt/mirth-connect/appdata
 
-ARG MIRTH_CONNECT_VERSION=3.7.0.b2399
+ARG MIRTH_CONNECT_VERSION=3.8.1.b246
 
 RUN \
   cd /tmp && \
